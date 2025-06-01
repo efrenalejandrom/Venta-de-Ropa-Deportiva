@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-Sports - Registro</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <h1 class="logo">T-Sports</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="registro.html">Registro</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="form-container">
+    <h2>Crear cuenta</h2>
+    <form onsubmit="registrarUsuario(event)">
+        <input type="text" id="nombre" placeholder="Nombre completo" required><br>
+        <input type="email" id="correo" placeholder="Correo electrónico" required><br>
+        <input type="password" id="password" placeholder="Contraseña" required><br>
+        <input type="password" id="confirmar" placeholder="Confirmar contraseña" required><br>
+        <button type="submit">Registrarse</button>
+    </form>
+</main>
+
+<footer>
+    <p>&copy; 2025 T-Sports</p>
+</footer>
+
+<script src="funciones.js"></script>
+<div id="toast"></div>
+
+</body>
+</html>
