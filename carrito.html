@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-Sports - Carrito</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <h1 class="logo">T-Sports</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="carrito.html">Carrito</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="form-container">
+    <h2>Carrito de compras</h2>
+    <div id="lista-carrito"></div>
+
+    <div id="acciones-carrito">
+        <button id="vaciar-carrito">Vaciar carrito</button>
+        <button id="pagar">Proceder al pago</button>
+    </div>
+    
+    <div id="volver-menu" style="display: none; margin-top: 20px;">
+        <a href="index.html">
+            <button>Volver al menú</button>
+        </a>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 T-Sports</p>
+</footer>
+
+<!-- Aquí se importa el JavaScript global -->
+<script src="funciones.js"></script>
+<div id="toast"></div>
+
+</body>
+</html>
