@@ -8,110 +8,118 @@
 </head>
 <body>
 
-<header>
-  <nav class="navbar">
-    <h1 class="logo">T-Sports</h1>
-    <ul class="nav-links">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="carrito.html">Carrito</a></li>
-    </ul>
-  </nav>
-</header>
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">T-Sports</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<main class="form-container">
-  <h2>Formulario de Pago</h2>
+  <main class="form-container">
+    <h2>Formulario de Pago</h2>
 
-  <form id="formularioPago">
-    <div>
-      <label for="nombre">Nombre completo:</label><br>
-      <input type="text" id="nombre" name="nombre" required>
-    </div><br>
+    <form id="formularioPago">
+      <div>
+        <label for="nombre">Nombre completo:</label><br>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+      <br>
+      <div>
+        <label for="correo">Correo electrónico:</label><br>
+        <input type="email" id="correo" name="correo" required>
+      </div>
+      <br>
+      <div>
+        <label for="direccion">Dirección de envío:</label><br>
+        <textarea id="direccion" name="direccion" rows="3" required></textarea>
+      </div>
+      <br>
+      <div>
+        <label for="tarjeta">Número de tarjeta:</label><br>
+        <input type="text" id="tarjeta" name="tarjeta" maxlength="16" pattern="\d{16}" required>
+      </div>
+      <br>
+      <div>
+        <label for="expiracion">Fecha de expiración (MM/AA):</label><br>
+        <input type="text" id="fecha-expiracion" name="expiracion" placeholder="MM/AA" maxlength="5" required>
+      </div>
+      <br>
+      <div>
+        <label for="cvv">CVV:</label><br>
+        <input type="text" id="cvv" name="cvv" maxlength="4" pattern="\d{3,4}" required>
+      </div>
+      <br>
+      <button type="submit">Realizar pago</button>
+    </form>
 
-    <div>
-      <label for="correo">Correo electrónico:</label><br>
-      <input type="email" id="correo" name="correo" required>
-    </div><br>
+    <!-- Confirmación visual -->
+    <div id="confirmacion" style="display: none; margin-top: 30px; padding: 20px; border: 2px solid #00695c; border-radius: 8px; background-color: #e0f2f1;">
+      <h3>✅ Confirmación de pago</h3>
+      <p><strong>Gracias por tu compra en T-Sports.</strong></p>
+      <p>Hemos enviado una confirmación simulada al correo que proporcionaste. Tu pedido será procesado en breve.</p>
+      <a href="index.html"><button>Volver al inicio</button></a>
+    </div>
+  </main>
 
-    <div>
-      <label for="direccion">Dirección de envío:</label><br>
-      <textarea id="direccion" name="direccion" rows="3" required></textarea>
-    </div><br>
+  <footer>
+    <p>&copy; 2025 T-Sports - Todos los derechos reservados</p>
+  </footer>
 
-    <div>
-      <label for="tarjeta">Número de tarjeta:</label><br>
-      <input type="text" id="tarjeta" name="tarjeta" maxlength="16" pattern="\d{16}" required>
-    </div><br>
+  <!-- Script inline que captura el envío del formulario y llama a tu backend -->
+  <script>
+    document.getElementById('formularioPago').addEventListener('submit', async function(event) {
+      event.preventDefault();
 
-    <div>
-      <label for="expiracion">Fecha de expiración (MM/AA):</label><br>
-      <input type="text" id="fecha-expiracion" name="expiracion" placeholder="MM/AA" maxlength="5" required>
-
-    </div><br>
-
-    <div>
-      <label for="cvv">CVV:</label><br>
-      <input type="text" id="cvv" name="cvv" maxlength="4" pattern="\d{3,4}" required>
-    </div><br>
-
-    <button type="submit">Realizar pago</button>
-  </form>
-
-  <!-- Confirmación visual -->
-  <div id="confirmacion" style="display: none; margin-top: 30px; padding: 20px; border: 2px solid #00695c; border-radius: 8px; background-color: #e0f2f1;">
-    <h3>✅ Confirmación de pago</h3>
-    <p><strong>Gracias por tu compra en T-Sports.</strong></p>
-    <p>Hemos enviado una confirmación simulada al correo que proporcionaste. Tu pedido será procesado en breve.</p>
-    <a href="index.html"><button>Volver al inicio</button></a>
-  </div>
-</main>
-
-<footer>
-  <p>&copy; 2025 T-Sports - Todos los derechos reservados</p>
-</footer>
-
-<script>
-  document.getElementById('formularioPago').addEventListener('submit', async function(event) {
-    event.preventDefault();
-
-    // Obtiene el correo del formulario
-    const correo = document.getElementById('correo').value;
-
-    // Prepara los datos para el backend
-    const datosCorreo = {
-      para: correo,
-      asunto: "Gracias por tu compra",
-      mensaje: "Tu pedido fue procesado exitosamente."
-    };
-
-    try {
-      const respuesta = await fetch("http://localhost:3000/enviar-correo", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(datosCorreo)
-      });
-
-      const resultado = await respuesta.json();
-
-      if (respuesta.ok) {
-        // Muestra el mensaje de confirmación visual
-        document.getElementById('formularioPago').style.display = 'none';
-        document.getElementById('confirmacion').style.display = 'block';
-        // Limpia el carrito
-        localStorage.removeItem('carrito');
-      } else {
-        alert("⚠️ Error al enviar el correo de confirmación.");
-        console.error(resultado.error);
+      // 1) Obtenemos el correo ingresado
+      const correo = document.getElementById('correo').value.trim();
+      if (!correo) {
+        alert("Por favor ingresa un correo válido.");
+        return;
       }
-    } catch (error) {
-      alert("❌ Error en la conexión con el servidor.");
-      console.error(error);
-    }
-  });
-</script>
 
-<script src="funciones.js"></script>
+      // 2) Preparamos el JSON que espera el backend
+      const datosCorreo = {
+        para: correo,
+        asunto: "Gracias por tu compra",
+        mensaje: "Tu pedido fue procesado exitosamente."
+      };
 
+      try {
+        // 3) Hacemos fetch a la ruta relativa "/enviar-correo"
+        const respuesta = await fetch("/enviar-correo", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(datosCorreo)
+        });
+
+        // 4) Interpretamos la respuesta JSON
+        const resultado = await respuesta.json();
+
+        if (respuesta.ok) {
+          // 5) Éxito: ocultamos el formulario y mostramos la confirmación visual
+          document.getElementById('formularioPago').style.display = 'none';
+          document.getElementById('confirmacion').style.display = 'block';
+          // Opcional: limpiar carrito, localStorage, etc.
+          localStorage.removeItem('carrito');
+        } else {
+          // Si backend devuelve un error (código distinto de 200)
+          alert("⚠️ Error al enviar el correo de confirmación.");
+          console.error(resultado.error || resultado);
+        }
+      } catch (error) {
+        // Si hubo un problema de conexión con el servidor
+        alert("❌ Error en la conexión con el servidor.");
+        console.error(error);
+      }
+    });
+  </script>
+
+  <!-- Si tienes funciones adicionales en funciones.js, mantenlo -->
+  <script src="funciones.js"></script>
 </body>
 </html>
