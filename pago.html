@@ -89,7 +89,7 @@
 
       try {
         // 3) Hacemos fetch a la ruta relativa "/enviar-correo"
-        const respuesta = await fetch("/enviar-correo"), {
+        const respuesta = await fetch("/enviar-correo", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
