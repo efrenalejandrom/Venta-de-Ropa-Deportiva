@@ -1,0 +1,9 @@
+# Ignorar node_modules en backend
+backend/node_modules/
+
+# Ignorar archivo de entorno real
+backend/.env
+
+# Logs de npm
+npm-debug.log*
+*.log

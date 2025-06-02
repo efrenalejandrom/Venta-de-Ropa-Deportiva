@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T-Sports - Inicio</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <h1 class="logo">T-Sports</h1>
+    <ul class="nav-links" id="menu-usuario">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="registro.html">Registro</a></li>
+<a href="login.html">Iniciar sesión</a>
+      <li><a href="carrito.html">Carrito (<span id="contador-carrito">0</span>)</a></li>
+    </ul>
+    <button id="cerrar-sesion" style="display:none; background-color: crimson; padding: 8px; color: white; border-radius: 5px; border: none; margin-right: 20px; cursor: pointer;" onclick="cerrarSesion()">Cerrar sesión</button>
+    
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h2>Playeras deportivas de alto rendimiento</h2>
+    <p>¡Explora nuestra colección exclusiva y entrena como un campeón!</p>
+  </section>
+
+  <!-- NUEVO ENCABEZADO -->
+  <section class="titulo-playeras">
+    <h2>Playeras deportivas manga corta Under Armour</h2>
+  </section>
+
+  <section class="productos">
+
+    <!-- Playera Roja -->
+    <div class="producto">
+      <div class="carrusel">
+        <button class="prev" onclick="cambiarImagen(this, -1)">&#10094;</button>
+        <img src="imagenes/PlayeraRoja.jpeg" data-imagenes='["imagenes/PlayeraRoja.jpeg", "imagenes/PlayeraRoja1.jpeg", "imagenes/PlayeraRoja2.jpeg"]'>
+        <button class="next" onclick="cambiarImagen(this, 1)">&#10095;</button>
+      </div>
+      <h3>Playera Roja Dry-Fit</h3>
+      <p>Licra estilo Dry-Fit</p>
+      <p>$299 MXN</p>
+      <button onclick="agregarAlCarrito('Playera Roja Dry-Fit', 299, 'imagenes/PlayeraRoja.jpeg')">Agregar al carrito</button>
+    </div>
+
+    <!-- Playera Verde Militar -->
+    <div class="producto">
+      <div class="carrusel">
+        <button class="prev" onclick="cambiarImagen(this, -1)">&#10094;</button>
+        <img src="imagenes/PlayeraVerde.jpeg" data-imagenes='["imagenes/PlayeraVerde.jpeg", "imagenes/PlayeraVerde1.jpeg", "imagenes/PlayeraVerde2.jpeg", "imagenes/PlayeraVerde4.jpeg"]'>
+        <button class="next" onclick="cambiarImagen(this, 1)">&#10095;</button>
+      </div>
+      <h3>Playera Verde Militar</h3>
+      <p>Licra estilo Dry-Fit</p>
+      <p>$319 MXN</p>
+      <button onclick="agregarAlCarrito('Playera Verde Militar', 319, 'imagenes/PlayeraVerde.jpeg')">Agregar al carrito</button>
+    </div>
+
+    <!-- Playera Azul Marino -->
+    <div class="producto">
+      <div class="carrusel">
+        <button class="prev" onclick="cambiarImagen(this, -1)">&#10094;</button>
+        <img src="imagenes/AzulMarino.jpeg" data-imagenes='["imagenes/AzulMarino.jpeg", "imagenes/AzulMarino1.jpeg", "imagenes/AzulMarino2.jpeg"]'>
+        <button class="next" onclick="cambiarImagen(this, 1)">&#10095;</button>
+      </div>
+      <h3>Playera Azul Marino</h3>
+      <p>Licra estilo Dry-Fit</p>
+      <p>$309 MXN</p>
+      <button onclick="agregarAlCarrito('Playera Azul Marino', 309, 'imagenes/AzulMarino.jpeg')">Agregar al carrito</button>
+    </div>
+
+    <!-- Playera Azul Rey -->
+    <div class="producto">
+      <div class="carrusel">
+        <button class="prev" onclick="cambiarImagen(this, -1)">&#10094;</button>
+        <img src="imagenes/AzulRey.jpeg" data-imagenes='["imagenes/AzulRey.jpeg", "imagenes/AzulRey1.jpeg", "imagenes/AzulRey2.jpeg"]'>
+        <button class="next" onclick="cambiarImagen(this, 1)">&#10095;</button>
+      </div>
+      <h3>Playera Azul Rey</h3>
+      <p>Licra estilo Dry-Fit</p>
+      <p>$309 MXN</p>
+      <button onclick="agregarAlCarrito('Playera Azul Rey', 309, 'imagenes/AzulRey.jpeg')">Agregar al carrito</button>
+    </div>
+
+    <!-- Playera Negra -->
+    <div class="producto">
+      <div class="carrusel">
+        <button class="prev" onclick="cambiarImagen(this, -1)">&#10094;</button>
+        <img src="imagenes/PlayeraNegra.jpeg" data-imagenes='["imagenes/PlayeraNegra.jpeg", "imagenes/PlayeraNegra1.jpeg", "imagenes/PlayeraNegra2.jpeg"]'>
+        <button class="next" onclick="cambiarImagen(this, 1)">&#10095;</button>
+      </div>
+      <h3>Playera Negra</h3>
+      <p>Licra estilo Dry-Fit</p>
+      <p>$329 MXN</p>
+      <button onclick="agregarAlCarrito('Playera Negra', 329, 'imagenes/PlayeraNegra.jpeg')">Agregar al carrito</button>
+    </div>
+
+    <!-- Playera Blanca -->
+    <div class="producto">
+      <div class="carrusel">
+        <button class="prev" onclick="cambiarImagen(this, -1)">&#10094;</button>
+        <img src="imagenes/Blanca.jpeg" data-imagenes='["imagenes/Blanca.jpeg", "imagenes/Blanca1.jpeg", "imagenes/Blanca2.jpeg"]'>
+        <button class="next" onclick="cambiarImagen(this, 1)">&#10095;</button>
+      </div>
+      <h3>Playera Blanca</h3>
+      <p>Licra estilo Dry-Fit</p>
+      <p>$299 MXN</p>
+      <button onclick="agregarAlCarrito('Playera Blanca', 299, 'imagenes/Blanca.jpeg')">Agregar al carrito</button>
+    </div>
+
+    <!-- Playera Amarilla -->
+    <div class="producto">
+      <div class="carrusel">
+        <button class="prev" onclick="cambiarImagen(this, -1)">&#10094;</button>
+        <img src="imagenes/Amarilla.jpeg" data-imagenes='["imagenes/Amarilla.jpeg", "imagenes/Amarilla2.jpeg"]'>
+        <button class="next" onclick="cambiarImagen(this, 1)">&#10095;</button>
+      </div>
+      <h3>Playera Amarilla</h3>
+      <p>Licra estilo Dry-Fit</p>
+      <p>$299 MXN</p>
+      <button onclick="agregarAlCarrito('Playera Amarilla', 299, 'imagenes/Amarilla.jpeg')">Agregar al carrito</button>
+    </div>
+
+    <!-- Playera Gris Perla -->
+    <div class="producto">
+      <div class="carrusel">
+        <button class="prev" onclick="cambiarImagen(this, -1)">&#10094;</button>
+        <img src="imagenes/GrisPerla.jpeg" data-imagenes='["imagenes/GrisPerla.jpeg", "imagenes/GrisPerla1.jpeg", "imagenes/GrisPerla2.jpeg"]'>
+        <button class="next" onclick="cambiarImagen(this, 1)">&#10095;</button>
+      </div>
+      <h3>Playera Gris Perla</h3>
+      <p>Licra estilo Dry-Fit</p>
+      <p>$309 MXN</p>
+      <button onclick="agregarAlCarrito('Playera Gris Perla', 309, 'imagenes/GrisPerla.jpeg')">Agregar al carrito</button>
+    </div>
+
+    <!-- Playera Gris Oxford -->
+    <div class="producto">
+      <div class="carrusel">
+        <button class="prev" onclick="cambiarImagen(this, -1)">&#10094;</button>
+        <img src="imagenes/GrisOxford.jpeg" data-imagenes='["imagenes/GrisOxford.jpeg", "imagenes/GrisOxford1.jpeg", "imagenes/Negra5.jpeg"]'>
+        <button class="next" onclick="cambiarImagen(this, 1)">&#10095;</button>
+      </div>
+      <h3>Playera Gris Oxford</h3>
+      <p>Licra estilo Dry-Fit</p>
+      <p>$309 MXN</p>
+      <button onclick="agregarAlCarrito('Playera Gris Oxford', 309, 'imagenes/GrisOxford.jpeg')">Agregar al carrito</button>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 T-Sports - Todos los derechos reservados</p>
+</footer>
+
+<script src="funciones.js"></script>
+<div id="toast" class="toast">Producto agregado al carrito</div>
+
+</body>
+</html>
