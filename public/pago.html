@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T-Sports - Pago</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <h1 class="logo">T-Sports</h1>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="carrito.html">Carrito</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="form-container">
+  <h2>Formulario de Pago</h2>
+
+  <form id="formularioPago">
+    <div>
+      <label for="nombre">Nombre completo:</label><br>
+      <input type="text" id="nombre" name="nombre" required>
+    </div><br>
+
+    <div>
+      <label for="correo">Correo electrónico:</label><br>
+      <input type="email" id="correo" name="correo" required>
+    </div><br>
+
+    <div>
+      <label for="direccion">Dirección de envío:</label><br>
+      <textarea id="direccion" name="direccion" rows="3" required></textarea>
+    </div><br>
+
+    <div>
+      <label for="tarjeta">Número de tarjeta:</label><br>
+      <input type="text" id="tarjeta" name="tarjeta" maxlength="16" pattern="\d{16}" required>
+    </div><br>
+
+    <div>
+      <label for="expiracion">Fecha de expiración (MM/AA):</label><br>
+      <input type="text" id="fecha-expiracion" name="expiracion" placeholder="MM/AA" maxlength="5" required>
+    </div><br>
+
+    <div>
+      <label for="cvv">CVV:</label><br>
+      <input type="text" id="cvv" name="cvv" maxlength="4" pattern="\d{3,4}" required>
+    </div><br>
+
+	<button type="button" id="btn-pagar">Realizar pago</button>
+	
+
+
+  </form>
+
+  <!-- Confirmación visual -->
+  <div id="confirmacion" style="display: none; margin-top: 30px; padding: 20px; border: 2px solid #00695c; border-radius: 8px; background-color: #e0f2f1;">
+    <h3>✅ Confirmación de pago</h3>
+    <p><strong>Gracias por tu compra en T-Sports.</strong></p>
+    <p>Hemos enviado una confirmación simulada al correo que proporcionaste. Tu pedido será procesado en breve.</p>
+    <a href="index.html"><button>Volver al inicio</button></a>
+  </div>
+</main>
+<div id="toast"></div>
+<footer>
+  <p>&copy; 2025 T-Sports - Todos los derechos reservados</p>
+</footer>
+
+  
+
+<!-- Lógica JavaScript externa -->
+<script src="funciones.js"></script>
+</body>
+</html>
+

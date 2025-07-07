@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-Sports - Carrito</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+
+<header>
+  <nav class="navbar">
+    <div class="logo">T-Sports</div>
+
+    <div class="saludo-usuario" id="saludo-usuario"></div>
+
+    <div class="nav-opciones">
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="carrito.html">Carrito (<span id="cantidad-carrito">0</span>)</a></li>
+      </ul>
+      <button id="cerrarSesion" class="boton-logout">Cerrar sesión</button>
+    </div>
+  </nav>
+</header>
+
+
+<main class="form-container">
+    <h2>Carrito de compras</h2>
+    <div id="lista-carrito"></div>
+
+	 <div id="total-carrito" style="font-weight: bold; font-size: 18px; color: #0a0a0a; margin: 20px 0; text-align: right; background-color: #f5f5f5; padding: 8px 12px; border-radius: 5px;"></div>
+
+	
+<div id="acciones-carrito" style="margin-top: 20px; display: flex; gap: 10px; justify-content: center;">
+    <button id="vaciar-carrito" class="boton-azul">Vaciar carrito</button>
+    <button id="pagar" class="boton-azul">Proceder al pago</button>
+</div>
+
+
+  
+
+    <div id="volver-menu" style="display: none; margin-top: 20px;">
+        <a href="index.html">
+            <button>Volver al menú</button>
+        </a>
+    </div>
+
+</main>
+
+
+
+<!-- Aquí se importa el JavaScript global -->
+<div id="toast"></div>
+
+<div id="vista-previa" class="modal" style="display:none;">
+  <div class="modal-contenido">
+    <span class="cerrar">&times;</span>
+    <img id="imagen-ampliada" src="" alt="Vista previa" />
+    <div class="controles">
+      <button onclick="navegarImagen(-1)">⟨</button>
+      <button onclick="navegarImagen(1)">⟩</button>
+    </div>
+  </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        mostrarCarrito();
+    });
+</script>
+
+
+
+
+<footer>
+    <p>&copy; 2025 T-Sports</p>
+</footer>
+
+
+
+
+<script src="funciones.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    actualizarContador();
+  });
+</script>
+</body>
+</html>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Iniciar sesión - T-Sports</title>
+  <link rel="stylesheet" href="estilos.css">
+ <link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <h1 class="logo">T-Sports</h1>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="registro.html">Registro</a></li>
+      <li><a href="login.html">Iniciar sesión</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="form-container">
+  <h2>Iniciar sesión</h2>
+  <form onsubmit="iniciarSesion(event)">
+    <input type="email" id="correoLogin" placeholder="Correo electrónico" required><br><br>
+    <input type="password" id="passwordLogin" placeholder="Contraseña" required><br><br>
+    
+    <button type="submit">Ingresar</button>
+    <a href="registro.html"><button type="button">Registrarse</button></a>
+<p style="margin-top: 20px; font-size: 14px;">¿Aún no tienes cuenta? Haz clic en <strong>Registrarse</strong> para crear una.</p>
+
+  </form>
+<div id="restablecer-container" style="margin-top: 10px; text-align: center;">
+  <button onclick="mostrarFormularioRestablecer()" style="background-color: #c0392b; color: white; padding: 6px 10px; border: none; border-radius: 5px;">
+    ¿Olvidaste tu contraseña?
+  </button>
+</div>
+
+<div id="form-restablecer" style="display: none; margin-top: 15px; text-align: center;">
+  <input type="password" id="nuevaPassword" placeholder="Nueva contraseña"><br><br>
+  <input type="password" id="confirmarPassword" placeholder="Confirmar contraseña"><br><br>
+  <button onclick="restablecerPassword()">Restablecer contraseña</button>
+</div>
+
+
+</main>
+
+<footer>
+  <p>&copy; 2025 T-Sports</p>
+</footer>
+
+<script src="funciones.js"></script>
+<div id="toast"></div>
+
+
+</body>
+</html>

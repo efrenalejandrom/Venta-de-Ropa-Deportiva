@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Administrador - T-Sports</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <h1 class="logo">T-Sports - Admin</h1>
+    <ul class="nav-links">
+<li><button id="cerrarSesion" style="background:none;border:none;color:white;cursor:pointer;">Cerrar sesiÃ³n</button></li>
+
+</ul>
+  </nav>
+</header>
+
+<main class="admin-container">
+  <h2>Panel de Control del Administrador</h2>
+
+  <section id="seccion-usuarios">
+    <h3>Usuarios Registrados</h3>
+    <table id="tabla-usuarios">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+<section id="seccion-agregar-usuario" style="margin-top: 30px;">
+  <h3>Agregar Nuevo Usuario</h3>
+  <form id="form-agregar-usuario">
+    <input type="text" id="nuevoNombre" placeholder="Nombre completo"><br><br>
+    <input type="email" id="nuevoCorreo" placeholder="Correo electrÃ³nico"><br><br>
+    <input type="password" id="nuevoContrasena" placeholder="ContraseÃ±a"><br><br>
+    <button type="submit">Agregar Usuario</button>
+  </form>
+</section>
+
+
+  <section id="seccion-pedidos" style="margin-top: 40px;">
+    <h3>Pedidos Registrados</h3>
+  </section>
+<section id="seccion-pedidos" style="margin-top: 40px;">
+  <h3>Pedidos Registrados</h3>
+  <table id="tabla-pedidos">
+    <thead>
+      <tr>
+        <th>ID Pedido</th>
+        <th>Usuario</th>
+        <th>Correo</th>
+        <th>Producto</th>
+        <th>Precio</th>
+        <th>Total</th>
+        <th>Fecha</th>
+	<th>Estado</th>
+	<th>Acción</th>
+      </tr>
+    </thead>
+    <tbody></tbody> 
+  </table>
+</section>
+<section id="filtros-pedidos" style="margin-bottom:20px;">
+  <label>
+    Estado:
+    <select id="filtro-status">
+      <option value="">Todos</option>
+      <option value="pendiente">Pendiente</option>
+      <option value="en envío">En envío</option>
+      <option value="entregado">Entregado</option>
+      <option value="cancelado">Cancelado</option>
+    </select>
+  </label>
+  <label>
+    Desde:
+    <input type="date" id="filtro-desde">
+  </label>
+  <label>
+    Hasta:
+    <input type="date" id="filtro-hasta">
+  </label>
+  <button id="btn-filtrar">Filtrar</button>
+</section>
+
+
+<section id="seccion-productos" style="margin-top:40px;">
+  <h3>Gestión de Productos</h3>
+
+  <!-- Formulario para crear -->
+  <form id="form-agregar-producto" enctype="multipart/form-data" style="margin-bottom:20px;">
+    <input name="nombre" placeholder="Nombre" required>
+    <input name="precio" type="number" step="0.01" placeholder="Precio" required>
+    <input name="stock"  type="number" placeholder="Stock" required>
+    <input name="fecha_entrega_estimada" type="date" placeholder="Entrega estimada">
+    <input name="imagenes" type="file" multiple accept="image/*">
+    <button type="submit">Crear producto</button>
+  </form>
+
+  <!-- Tabla de listado -->
+  <table id="tabla-productos" border="1" cellspacing="0" cellpadding="5">
+    <thead>
+      <tr>
+        <th>ID</th><th>Nombre</th><th>Precio</th><th>Stock</th><th>Entrega</th><th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</section>
+
+
+</main>
+
+<footer>
+  <p>&copy; 2025 T-Sports</p>
+</footer>
+
+<script src="funciones.js"></script>
+
+
+
+
+
+</body>
+</html>
+

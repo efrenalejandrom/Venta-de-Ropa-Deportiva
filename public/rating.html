@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Valora tus productos</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <!-- ======= HEADER ======= -->
+ <header class="navbar">
+  <div class="logo">T-Sports</div>
+
+  <!-- Mensaje centrado -->
+  <div class="greeting">
+    Continua con el pago,&nbsp;<strong id="nombre-usuario-header"></strong>
+  </div>
+
+  <!-- Botón a la derecha -->
+  <div class="header-right">
+    <button id="cerrarSesion" class="boton-logout">Cerrar sesion</button>
+  </div>
+</header>
+
+  <main>
+    <h1>Califica tus productos</h1>
+    <div id="rating-container"></div>
+    <div class="rating-buttons">
+      <button id="volver-carrito"> < Volver al carrito</button>
+      <button id="continuar-pago">Continuar al pago</button>
+    </div>
+  </main>
+<!-- contenedor para los toasts -->
+<div id="toast" class="toast"></div>
+
+  <!-- ======= FOOTER ======= -->
+  <footer>
+    © 2025 T-Sports
+  </footer>
+
+  <script src="funciones.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const usuario = JSON.parse(localStorage.getItem('usuario') || '{}');
+      if (usuario.nombre) {
+        document.getElementById('nombre-usuario-header').textContent = usuario.nombre;
+      }
+      // cerrar sesión
+      document.getElementById('cerrarSesion')
+        .addEventListener('click', () => {
+          localStorage.clear();
+          window.location.href = 'index.html';
+        });
+    });
+  </script>
+
+
+</body>
+</html>
